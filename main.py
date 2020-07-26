@@ -10,7 +10,7 @@ from retrieve_csv_info_file import retrieve_csv_info
 
 save_folder = 'downloaded_info'
 video_channel_id = 'UC4ijq8Cg-8zQKx8OH12dUSw'
-num_clusters = 5
+num_playlists = 5
 
 
 ## Code starts here
@@ -20,7 +20,7 @@ channel_info.retrieve_channel_info()
 sub_store, title_store, video_id_store = retrieve_csv_info('Subs', save_folder)
 
 lda = LDAmodel(sub_store, title_store, video_id_store,
-               num_clusters, num_passes = 100, no_below=10,
+               num_playlists, num_passes = 100, no_below=10,
                no_above=0.5)
 lda.fit_LDAmodel()
 lda.print_clusters()
