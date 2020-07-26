@@ -11,6 +11,18 @@ The program is used as follows:
 3.  Open main.py, insert the channel-id into "video_channel_id". Choose the number of playlists with "num_playlists".
 4.  Run the program and wait. The result will be saved down in the designated folder.
 
+You can either install the required packages from requirements.txt, or you can download Anaconda and type the following lines.<br\>
+conda install python=3.7<br\>
+conda install -c anaconda gensim<br\>
+conda install -c anaconda spyder
+conda install -c conda-forge google-auth-oauthlib
+conda install -c conda-forge google-api-python-client
+pip install youtube_transcript_api
+conda install -c anaconda pandas
+conda install -c anaconda nltk
+conda install -c anaconda beautifulsoup4
+
+
 
 
 
