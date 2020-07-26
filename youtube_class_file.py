@@ -16,6 +16,12 @@ import csv, sys, time
 
 
 class youtube_class():
+    """
+    Class to deal with the youtube-api and to retrieve the channel information.
+    Args:
+        download_folder: The folder where the content is to be downloaded
+        video_channel_id: The channel-id of the channel.
+    """
     
     def __init__(self, download_folder, video_channel_id):
         
@@ -55,10 +61,13 @@ class youtube_class():
             api_service_name, api_version, credentials=credentials)
         
     def retrieve_channel_info(self):
-        ## Does retrieve channel information cost credits and thus I cannot retrive the subtitles later?
+        """
+        Retrieves the channel information.
+        """
         
         def download_info(channel_id):
 
+            ## Obtain video-ids
             res = self.youtube.channels().list(id = channel_id,
                                         part = 'contentDetails').execute()
             playlist_id = res['items'][0]['contentDetails']['relatedPlaylists']['uploads']
@@ -66,11 +75,11 @@ class youtube_class():
             store_all_info = []
             next_page_token = None
             
-            ## Can I only get 50 results here ever?
+            ## To display how many were successfully downloaded
             num_videos_seen = 0
             num_videos_stored = 0
             
-            
+            ## Retrieve all video subtitles
             while True:
                 
                 res = self.youtube.playlistItems().list(playlistId = playlist_id,
@@ -83,7 +92,7 @@ class youtube_class():
                 for video_info in information_list:
                       
                     ## Does the video have subtitles
-                    time.sleep(0.05) ## Might improve the amount of subs that we can download
+                    time.sleep(0.05) ## Do not access the site too quickly
                     try:
                         
                         video_id = video_info['snippet']['resourceId']['videoId']
@@ -108,7 +117,8 @@ class youtube_class():
                         store_all_info.append(dict_store)
                         num_videos_seen = num_videos_seen + 1
                         num_videos_stored = num_videos_stored + 1
-                    ## If not hen ignore it
+                        
+                    ## If not then ignore it
                     except:
                         num_videos_seen = num_videos_seen + 1
                     self.print_progress()
@@ -131,8 +141,12 @@ class youtube_class():
         self.save_channel_info(self.download_folder)
         
     def save_channel_info(self, save_folder = 'saved_channel_info'):
-        
-       ## So we just save it as a csv or something similar here I guess?
+       
+       """
+       Save the info into a csv file 
+       """
+       
+        ## Save as long as there is information
        if len(self.all_information_store) != 0:
         csv_columns = [col_name for col_name in self.all_information_store[0].keys()]
         csv_file = "stored_information.csv"
@@ -151,6 +165,10 @@ class youtube_class():
          print('\n Information could not be retrieved.')
 
     def print_progress(self):
+        
+        """
+        Print the progress of the download
+        """
         
         sys.stdout.write('\r')
         print_line = 'Retrieving Information' + self.print_prog_id*'.'
