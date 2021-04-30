@@ -111,7 +111,7 @@ regex @ file:///C:/ci/regex_1593435644645/work
 requests @ file:///tmp/build/80754af9/requests_1592841827918/work
 requests-oauthlib @ file:///home/conda/feedstock_root/build_artifacts/requests-oauthlib_1595492159598/work
 rope==0.17.0
-rsa==4.6
+rsa==4.7
 Rtree==0.9.4
 s3transfer @ file:///C:/ci/s3transfer_1594411925509/work
 scipy @ file:///C:/ci/scipy_1592916958183/work
