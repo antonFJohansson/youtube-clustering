@@ -1,7 +1,7 @@
 # youtube-clustering
 
 This is a Python program to automatically create youtube playlists given a channel. The program uses Latent Dirichlet Allocation to create the playlists.
-For a more in depth explanation, click [here](https://antonfjohansson.github.io/blog/youtube-clustering/).
+For a more in depth explanation, click [here](https://antonfjohansson.github.io/blog_posts/youtube-clustering.html).
 
 If you want to use the program, you first need to get authorization access to the youtube-api. You can follow the instructions [here](https://developers.google.com/youtube/registering_an_application) to obtain it. You need to obtain a txt-file with your access codes inside. It should be called "YOUR_CLIENT_SECRET_FILE.txt".
 
