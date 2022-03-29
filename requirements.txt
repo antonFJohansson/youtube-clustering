@@ -72,7 +72,7 @@ oauthlib==3.0.1
 packaging==20.4
 pandas @ file:///C:/ci/pandas_1592841747005/work
 pandocfilters==1.4.2
-paramiko==2.7.1
+paramiko==2.10.1
 parso==0.7.0
 pathtools==0.1.2
 pexpect @ file:///C:/ci/pexpect_1594383465186/work
