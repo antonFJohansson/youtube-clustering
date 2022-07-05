@@ -137,7 +137,7 @@ tornado==6.0.4
 tqdm @ file:///tmp/build/80754af9/tqdm_1593446365756/work
 traitlets==4.3.3
 typed-ast==1.4.1
-ujson==1.35
+ujson==5.4.0
 uritemplate==3.0.1
 urllib3==1.25.9
 watchdog @ file:///C:/ci/watchdog_1593446515400/work
